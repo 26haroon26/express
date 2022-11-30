@@ -3,13 +3,16 @@ import axios from 'axios';
 import '../Style.css'
 import CitySearch from './CitySearch';
 import WeatherCard from './WeatherCard'
-
+let baseUrl ='';
+if (window.location.href.split(':')[0]=== 'http') {
+    baseUrl = 'http://localhost:3000'
+}
 class App extends React.Component{
 
     state = {weatherResult: null}
 
     onSearchSubmit = async (searchInputValue) => {
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${searchInputValue}&appid=ca261c971d5638db9d4d6cbccc1f093d`)
+        const response = await axios.get(`${baseUrl}/weather/`)
         this.setState({weatherResult: response.data})
      }
 

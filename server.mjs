@@ -1,10 +1,12 @@
 import express from "express";
+import cors from 'cors';
+
 import path, { dirname } from "path";
 // const express = require('express') ye old hogya he
 const app = express();
 const port = process.env.PORT || 3000;
 const _dirname = path.resolve();
-
+app.use(cors());
 app.get("/weather", (req, res) => {
   console.log("request ip :", req.ip);
   res.send({
