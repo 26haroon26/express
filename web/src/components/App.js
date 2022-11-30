@@ -7,6 +7,9 @@ let baseUrl ='';
 if (window.location.href.split(':')[0]=== 'http') {
     baseUrl = 'http://localhost:5000'
 }
+else {
+    baseUrl = 'https://hello-world-express.up.railway.app/';
+}
 class App extends React.Component{
 
     state = {weatherResult: null}
