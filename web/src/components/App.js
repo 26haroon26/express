@@ -5,14 +5,14 @@ import CitySearch from './CitySearch';
 import WeatherCard from './WeatherCard'
 let baseUrl ='';
 if (window.location.href.split(':')[0]=== 'http') {
-    baseUrl = 'http://localhost:3000'
+    baseUrl = 'http://localhost:5000'
 }
 class App extends React.Component{
 
     state = {weatherResult: null}
 
     onSearchSubmit = async (searchInputValue) => {
-        const response = await axios.get(`${baseUrl}/weather/`)
+        const response = await axios.get(`${baseUrl}/weather/${searchInputValue}`)
         this.setState({weatherResult: response.data})
      }
 

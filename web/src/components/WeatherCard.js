@@ -31,25 +31,23 @@ class WeatherCard extends React.Component {
                 <div className="card-body my-5">
                     <div className="card-mid row">
                         <div className="col-8 text-center temp">
-                            <span>{this.props.weatherResult.humidity}&deg;C</span>
+                            <span>{this.props.weatherResult.temp}&deg;C</span>
                         </div>
                         <div className="col-4 condition-temp">
                             <p className="condition">{this.props.weatherResult.time}</p>
-                            {/* <p className="high">Max: 30&deg;C</p> */}
-                            {/* <p className="low">Min: 27&deg;C</p> */}
+                     
                         </div>
                     </div>
 
                     <div className="icon-container card shadow mx-auto">
-                        {/* {this.getWeatherIcon(this.props.weatherResult.visiblity)} */}
                     </div>
                     <div className="card-bottom px-5 py-4 row">
                         <div className="col text-center">
-                            {/* <p>{this.spitOutCelcius(this.props.weatherResult.main.feels_like)}&deg;C</p> */}
+                            <p>{this.props.weatherResult.feels}&deg;C</p>
                             <span>Feels Like</span>
                         </div>
                         <div className="col text-center">
-                            {/* <p>{this.props.weatherResult.main.humidity}%</p> */}
+                            <p>{this.props.weatherResult.humidity}%</p>
                             <span>Humidity</span>
                         </div>
                     </div>

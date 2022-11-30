@@ -4,18 +4,52 @@ import cors from 'cors';
 import path, { dirname } from "path";
 // const express = require('express') ye old hogya he
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const _dirname = path.resolve();
 app.use(cors());
-app.get("/weather", (req, res) => {
+app.get("/weather/:cityname", (req, res) => {
   console.log("request ip :", req.ip);
-  res.send({
-    temp: 30,
-    humidity: 50,
-    time: new Date().toString(),
-    visiblity: 1,
-  });
-});
+  if (req.params.cityname === 'karachi') {
+    console.log('karachi');
+    res.send(
+      {
+        temp: 30,
+        humidity: 50,
+        time: new Date().toString(),
+        visiblity: 1,
+        feels: 23,
+
+      });
+  }
+  else if (req.params.cityname === 'lahore') {
+    console.log('lahore');
+
+    res.send(
+      {
+        temp: 40,
+        humidity: 80,
+        time: new Date().toString(),
+        visiblity: 3,
+        feels: 40,
+
+      });
+
+  } 
+  else if (req.params.cityname === 'islamabad') {
+    console.log('islamabad');
+    res.send(
+      {
+        temp: 20,
+        humidity: 10,
+        time: new Date().toString(),
+        visiblity: 0,
+        feels: 5,
+      });
+
+  }
+}
+  );
+
 app.get("/forcast", (req, res) => {
   console.log("request ip :", req.ip);
   res.send([
