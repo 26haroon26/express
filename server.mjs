@@ -7,6 +7,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const _dirname = path.resolve();
 app.use(cors());
+app.use(express.json());
 app.get("/weather/:cityname", (req, res) => {
   console.log("request ip :", req.ip);
   if (req.params.cityname === 'karachi') {
